@@ -1,0 +1,32 @@
+{% extends 'theme.html' %}
+{% load static %}
+
+{% block content %}
+<h1>MENU DETAILS</h1>
+<div class="container">
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputName1" class="form-label">Name</label>
+      {{menu1.name}}
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputImage1" class="form-label">Upload Image</label>
+      {{menu1.image}}
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputRating1" class="form-label">Rating</label>
+        {{menu1.rating}}
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPrice1" class="form-label">Price</label>
+        {{menu1.price}}
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputReview1" class="form-label">Review</label>
+        {{menu1.review}}
+      </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
+{% endblock %}

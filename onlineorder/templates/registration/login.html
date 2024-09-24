@@ -1,0 +1,36 @@
+{% extends 'theme.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <center>
+    <div class="card" style="width: 45rem; height: 500px;">
+      <div class="card-body">
+        <h3>LOGIN FORM</h3>
+        <br>
+        <br>
+        <br>
+   <form action="" method="post">
+   {% csrf_token %}
+   <form>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" style="font-size: x-large;">Email address</label>
+        {{form.username}}
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" style="font-size: x-large;">Password</label>
+        {{form.password}}
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+   </form>
+   </div>
+   </div>
+   </center>
+</div>
+{% endblock %}

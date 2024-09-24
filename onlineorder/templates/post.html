@@ -1,0 +1,24 @@
+{% extends 'theme.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <form action="" method="post">
+    {% csrf_token %}
+    {% for a in menu %}
+        <div class="card" style="width: 20rem; height: 29rem;">
+            <img src="{{a.image.url}}" class="card-img-top" alt="..." style="width: 320px;">
+            <div class="card-body">
+              <h5 class="card-title">Food Name  :{{a.name}}</h5>
+              <p class="card-text">rating :{{a.rating}}  <i class="fas fa-star-half-alt" style="color: yellow;"></i> <i class="fas fa-star-half-alt" style="color: yellow;"></i> <i class="fas fa-star-half-alt" style="color: yellow;"></i> <i class="fas fa-star-half-alt" style="color: yellow;"></i> <i class="fas fa-star-half-alt" style="color: yellow;"></i></p>
+              <p class="card-text">price  :{{a.price}}</p>
+              <p class="card-text">review :{{a.review}}</p>
+            </div>
+            <form action="" method="post">
+              <a href="{% url 'add_to_cart' a.id %}" class="btn btn-outline-success" style="margin-left: 220px; width: 100px;">ADD+</a>
+              </form>
+          </div>
+        {% endfor %}
+        </form>   
+</div>
+{% endblock %}

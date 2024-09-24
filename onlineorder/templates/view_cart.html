@@ -1,0 +1,42 @@
+{% extends 'theme.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Sl No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Qty</th>
+            <th scope="col">user</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for a in using %}
+          <tr>
+            <th scope="row">1</th>
+            <td>{{a.name}}</td>
+            <td>{{a.qty}}</td>
+            <td>{{a.user}}</td>
+            <td>
+              <form action="" method="post">
+                <a href="{% url 'add_to_cart' a.id %}" class="btn btn-outline-success" style="margin-left: 220px; width: 100px;">ADD+</a>
+                </form>
+              </td>
+              <td>
+                  <td> <a href="{% url 'remove_cart' a.id %}"><button type="submit" class="btn btn-danger">Remove</button> </td></a> 
+                </form>
+              </td>
+          </tr>
+          {% endfor %}
+          </tbody>
+          </table>
+          <button type="submit" class="btn btn-outline-success"<h3>Your Cart Total :{{total}}</h3></button>
+          <form action="" method="post">
+            {% csrf_token %}
+            <a href="{% url 'itemadd' %}"<button type="submit" class="btn btn-danger" style="width: 180px; margin-top: 30px;">item added</button></a>
+          </form>
+          
+</div>
+{% endblock %}

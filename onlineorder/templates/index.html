@@ -1,0 +1,47 @@
+{% extends 'theme.html' %}
+{% load static %}
+
+{% block content %}
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="{% static 'img/Zomato_1582802863190.webp' %}" alt="" style="width: 100%; height: 400px;">
+              </div>
+              <div class="swiper-slide">
+                <img src="{% static 'img/1549991475154.png' %}" alt="" style="width: 100%; height: 400px;">
+              </div>
+              <div class="swiper-slide">
+                <img src="{% static 'img/zomato-infinity-dining-916x516-1.jpg' %}" alt="" style="width: 100%; height: 400px;"> 
+              </div>
+              <div class="swiper-slide">
+                <img src="{% static 'img/hq720.jpg' %}" alt="" style="width: 100%; height: 400px;">
+              </div>
+              <div class="swiper-slide">
+                <img src="{% static 'img/images.jfif' %}" alt="" style="width: 100%; height: 400px;">
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div> 
+          <br> 
+          <div class="container">
+            <div class="row">
+            {% for a in bio %}
+            <div class="col-md-4">
+              <a href="{% url 'post' a.id %}" class="effect-lily tm-cart-link tm-pt-60">
+            <div class="card" style="width: 18rem; ">
+                <img src="{{a.fo_image.url}}" class="card-img-top" alt="..." style="width: 285px; height: 250px;">
+                <div class="card-body">
+                  <h5 class="card-title">{{a.fo_name}}</h5>
+                  <p class="card-text">{{a.fo_min}}min</p>
+                  <p class="card-text">{{a.fo_km}}km</p>
+                  <p class="card-text">{{a.fo_rating}} rating</p>
+                </div>
+              </div>
+              </a>
+            </div>
+              {% endfor %}
+            </div>
+          </div>      
+{% endblock %}
+          

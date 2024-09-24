@@ -1,0 +1,51 @@
+{% extends 'theme.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  {% for a in menu %}
+    <div class="card" style="width: 28rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{a.name}}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary"><i class="fa-solid fa-indian-rupee-sign"></i> {{a.price}}</h6>
+          <div class="card" style="width: 250px;height: 30px;">
+          <p class="card-text" style="margin-top: -1px;"><i class="fa-regular fa-note-sticky"></i> Add a note for the restautant</p>
+        </div>
+        </div>
+      </div>
+      {% endfor %}
+      <br>
+      <div class="card" style="width: 28rem;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><i class="fas fa-percentage" style="color: blue;"></i>  No restaurant coupons available</li>
+          <li class="list-group-item"><i class="fa-regular fa-credit-card"></i> view all payment coupons</li>
+        </ul>
+      </div>
+      <br>
+      <div class="card" style="width: 28rem;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><i class="fa-regular fa-clock fa-rotate-270" style="color: #63E6BE;"></i> Delivery in 30 min</li>
+          <li class="list-group-item"><i class="fa-solid fa-house"></i> Delivery at home
+            <p>3/2 Lakshmipuram G.koundampalayam Coimbatore-641020</p>
+            <h3 style="font-size: small;">Add instructions for delivery partner</h3>
+          </li>
+          <li class="list-group-item"><i class="fa-solid fa-phone"></i> Diwakar,+91-9080213837</li>
+          <li class="list-group-item"><i class="fa-regular fa-file-lines"></i> Totel Bill  <i class="fa-solid fa-indian-rupee-sign"> {{total}}</i></li>
+        </ul>
+      </div>
+      <div class="card" style="width: 28rem;background-color: aliceblue;height: 150px;">
+        <div class="card-body">
+          <h3>CANCELLATION POLICY</h3>
+          <li>Help us reduce food waste by avoiding concellations.the amount paid is non-refundable after placing the order</li>
+          </div>
+          </div>
+          <div class="card" style="width: 28rem;">
+            <div class="card-body">
+              <form action="{% url 'index' %}" method="post">
+                {% csrf_token %}
+                <a href="{% url 'atm' %}"<button type="submit" class="btn btn-sucess" style="width: 180px; margin-top: 30px; background-color: rgb(240, 246, 187); margin-left: 30px;">PAY USING</button></a><button type="submit" class="btn btn-danger" style="margin-top:30px; width: 70px; border-radius: 1px;">{{total}}</button><button type="submit" class="btn btn-danger" style="margin-top: 30px; border-radius: 1px;">Place order</button>
+          </form>
+          </div>
+          </div>
+</div>
+{% endblock %}
