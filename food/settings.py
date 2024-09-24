@@ -43,7 +43,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "allauth.account.middleware.AccountMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware"
+     "whitenoise.middleware.WhiteNoiseMiddleware"
 ]
 
 ROOT_URLCONF = 'food.urls'
@@ -60,7 +60,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.request',
-                "whitenoise.middleware.WhiteNoiseMiddleware"
             ],
         },
     },
@@ -115,9 +114,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATICFILES_DIRES =[
-#     os.path.join(BASE_DIR, 'static')
-# ]
+STATICFILES_DIRES =[
+    os.path.join(BASE_DIR, 'static')
+]
 STATIC_ROOT = BASE_DIR / "static"
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
